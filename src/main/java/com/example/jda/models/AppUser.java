@@ -14,47 +14,17 @@ public class AppUser {
     private String username;
     private String password;
     private LocalDate regDate;
-    //@OneToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "details_id", table = "app_user")
-    //private Details userDetails;
-    //private String role;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id", table = "app_user")
+    private Details userDetails;
 
-
-    @Override
-    public String toString() {
-        return "AppUser{" +
-                "appUserId=" + appUserId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", regDate=" + regDate +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AppUser appUser = (AppUser) o;
-        return appUserId == appUser.appUserId &&
-                Objects.equals(username, appUser.username) &&
-                Objects.equals(password, appUser.password) &&
-                Objects.equals(regDate, appUser.regDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(appUserId, username, password, regDate);
-    }
-
-    //public AppUser(int appUserId, String username, String password, LocalDate regDate, Details userDetails) {
-    public AppUser(int appUserId, String username, String password, LocalDate regDate) {
+    public AppUser(int appUserId, String username, String password, LocalDate regDate, Details userDetails) {
         this.appUserId = appUserId;
         this.username = username;
         this.password = password;
         this.regDate = regDate;
-        //this.userDetails = userDetails;
+        this.userDetails = userDetails;
     }
-
 
     public AppUser() {
     }
@@ -91,11 +61,46 @@ public class AppUser {
         this.regDate = regDate;
     }
 
-    //public Details getUserDetails() {
-    //    return userDetails;
-    //}
+    public Details getUserDetails() {
+        return userDetails;
+    }
 
-    //public void setUserDetails(Details userDetails) {
+    public void setUserDetails(Details userDetails) {
+        this.userDetails = userDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "appUserId=" + appUserId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", regDate=" + regDate +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AppUser appUser = (AppUser) o;
+        return appUserId == appUser.appUserId &&
+                Objects.equals(username, appUser.username) &&
+                Objects.equals(password, appUser.password) &&
+                Objects.equals(regDate, appUser.regDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(appUserId, username, password, regDate);
+    }
+
+    //public AppUser(int appUserId, String username, String password, LocalDate regDate, Details userDetails) {
+    public AppUser(int appUserId, String username, String password, LocalDate regDate) {
+        this.appUserId = appUserId;
+        this.username = username;
+        this.password = password;
+        this.regDate = regDate;
         //this.userDetails = userDetails;
-    //}
+    }
 }
