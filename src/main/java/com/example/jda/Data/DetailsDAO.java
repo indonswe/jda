@@ -9,5 +9,5 @@ public interface DetailsDAO {
     Collection<Details> findAll();
     Details create(Details details);
     Details update(Details details);
-    void delete(int detailsId);
+    void delete(Integer details);
 }
