@@ -1,12 +1,12 @@
-package com.example.jda.Data;/*package Data;
+package com.example.jda.Data;
 
-import models.AppUser;
-import models.Details;
+import com.example.jda.models.AppUser;
+import com.example.jda.models.Details;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 
 @Repository
@@ -27,30 +27,31 @@ public class DetailsDAORepository implements DetailsDAO {
     }
     @Override
     @Transactional(readOnly = true)
-    public Collection<AppUser> findAll() {
-        return em.createQuery("Select user From AppUser user", AppUser.class)
+    public Collection<Details> findAll() {
+        return em.createQuery("Select user From AppUser user", Details.class)
                 .getResultList();
     }
     @Override
     @Transactional
-    public AppUser create(AppUser appUser){
-        em.persist(appUser);
-        return appUser;
+    public Details create(Details details){
+        em.persist(details);
+        return details;
     }
     @Override
     @Transactional
-    public AppUser update(AppUser appUser){
-        return em.merge(appUser);
+    public Details update(Details details){
+        return em.merge(details);
     }
-    /*@Override
+    @Override
     @Transactional
     public void delete(Integer integer){
-        AppUser appUser = findById(integer);
-        if(appUser!=null){
-            em.remove(appUser);
+    Details details = findById(integer);
+        //AppUser appUser = findById(integer);
+        if(details!=null){
+            em.remove(details);
         }
     }
 }
-*/
+
 
 
