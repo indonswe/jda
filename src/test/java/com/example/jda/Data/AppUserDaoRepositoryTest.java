@@ -18,7 +18,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
+
 @SpringBootTest
 @AutoConfigureTestDatabase
 @AutoConfigureTestEntityManager
@@ -34,8 +34,8 @@ class AppUserDaoRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        (int appUserId, String username, String password, LocalDate regDate, Details userDetails)
-        AppUser unpersisted = new AppUser(null, "Erik", "Svensson", LocalDate.parse("1976-09-11"));
+
+        AppUser unpersisted = new AppUser(1, "Erik", "Svensson", LocalDate.parse("1976-09-11"));
         persistedAppUser = em.persistAndFlush(unpersisted);
     }
 
@@ -48,7 +48,7 @@ class AppUserDaoRepositoryTest {
     @DisplayName("Given new student create should return entity with id")
     void create() {
         AppUser appUser = new AppUser(
-                null, "Teresia", "Gable", LocalDate.parse("1989-07-13")
+                2, "Teresia", "Gable", LocalDate.parse("1989-07-13")
         );
 
         AppUser result = testObject.create(appUser);
