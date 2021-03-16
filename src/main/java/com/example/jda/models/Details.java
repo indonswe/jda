@@ -16,13 +16,11 @@ public class Details {
 
     //@OneToOne(mappedBy = "Details")
     //private AppUser appUser;
+    //@OneToOne(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "details_id", table = "app_user")
+    //private Details userDetails;
 
-        @OneToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name = "details_id", table = "app_user")
-        private AppUser appUser;
-
-        //private Details userDetails;
-
+    //private AppUser appUser;
 
 
     public Details(int detailsId, String email, String name, LocalDate birthDate, AppUser appUser) {
@@ -30,7 +28,7 @@ public class Details {
         this.email = email;
         this.name = name;
         this.birthDate = birthDate;
-        this.appUser = appUser;
+        //this.appUser = appUser;
     }
 
     public Details() {

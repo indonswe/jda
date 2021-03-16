@@ -8,13 +8,13 @@ import java.util.Objects;
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
-    private int appUserId;
     //@Column(unique = true)
+    private int appUserId;
+    @Column(unique = true)
     private String username;
     private String password;
     private LocalDate regDate;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "details_id", table = "app_user")
     private Details userDetails;
 

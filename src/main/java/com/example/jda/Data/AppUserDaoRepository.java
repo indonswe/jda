@@ -2,6 +2,7 @@ package com.example.jda.Data;
 
 import com.example.jda.models.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import javax.persistence.EntityManager;
@@ -26,23 +27,31 @@ public class AppUserDaoRepository implements com.example.jda.Data.AppUserDAO {
 
 
     @Override
+    @Transactional
     public AppUser create(AppUser appUser) {
-        return null;
+        em.persist(appUser);
+        return appUser;
     }
 
     @Override
+    @Transactional(readOnly = true)
     public AppUser findById(Integer appUserID) {
         return em.find(AppUser.class,appUserID);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Collection<AppUser> findAll() {
-        return null;
+        return em
+                .createQuery("SELECT appUser FROM AppUser appUser", AppUser.class)
+                .getResultList();
     }
 
     @Override
+    @Transactional
     public AppUser update(AppUser appUser) {
-        return null;
+        em.merge(appUser);
+        return appUser;
     }
 
     @Override
