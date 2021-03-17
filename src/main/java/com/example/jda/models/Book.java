@@ -3,6 +3,7 @@ package com.example.jda.models;
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +28,14 @@ public class Book {
         this.title = title;
         this.maxLoanDays = maxLoanDays;
         this.authors = authors;
+    }
+
+    public Book(Integer bookId, String isbn, String title, int maxDays) {
+        this.bookId = bookId;
+        this.isbn = isbn;
+        this.title = title;
+        this.maxLoanDays = maxDays;
+        //this.authors = authors;
     }
 
     public Book(){

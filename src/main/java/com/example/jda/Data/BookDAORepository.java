@@ -2,11 +2,13 @@ package com.example.jda.Data;
 
 import com.example.jda.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.Collection;
 
+@Repository
 public class BookDAORepository implements BookDAO{
 
     private final EntityManager em;

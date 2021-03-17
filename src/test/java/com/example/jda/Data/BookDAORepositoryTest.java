@@ -2,6 +2,7 @@
 
 package com.example.jda.Data;
 
+
 import com.example.jda.models.AppUser;
 import com.example.jda.models.Book;
 import org.junit.jupiter.api.AfterEach;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEnti
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,22 +24,25 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestEntityManager
 @Transactional
 @DirtiesContext
+//@WebAppConfiguration
 
 class BookDAORepositoryTest {
 
     @Autowired
-    private Book testObject;
+    private BookDAO testObject;
     @Autowired private TestEntityManager em;
 
     private Book persistedBook;
 
     @BeforeEach
     void setUp() {
-
+        Book unpersisted = new Book(null,"Karl", "Marxx", 333);
+        persistedBook = em.persistAndFlush(unpersisted);
     }
 
     @AfterEach
     void tearDown() {
+        em.flush();
     }
 
     @Test
