@@ -9,7 +9,8 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(unique = true)
-    private int appUserId;
+    @Column(updatable = false)
+    private Integer appUserId;
     @Column(unique = true)
     private String username;
     private String password;
@@ -18,7 +19,7 @@ public class AppUser {
     @JoinColumn(name = "details_id", table = "app_user")
     private Details userDetails;
 
-    public AppUser(int appUserId, String username, String password, LocalDate regDate, Details userDetails) {
+    public AppUser(Integer appUserId, String username, String password, LocalDate regDate, Details userDetails) {
         this.appUserId = appUserId;
         this.username = username;
         this.password = password;
@@ -29,13 +30,15 @@ public class AppUser {
     public AppUser() {
     }
 
+
+
     public int getAppUserId() {
         return appUserId;
     }
 
-    public void setAppUserId(int appUserId) {
-        this.appUserId = appUserId;
-    }
+    //public void setAppUserId(int appUserId) {
+       // this.appUserId = appUserId;
+   // }
 
     public String getUsername() {
         return username;
@@ -95,12 +98,5 @@ public class AppUser {
         return Objects.hash(appUserId, username, password, regDate);
     }
 
-    //public AppUser(int appUserId, String username, String password, LocalDate regDate, Details userDetails) {
-    public AppUser(int appUserId, String username, String password, LocalDate regDate) {
-        this.appUserId = appUserId;
-        this.username = username;
-        this.password = password;
-        this.regDate = regDate;
-        //this.userDetails = userDetails;
-    }
+
 }

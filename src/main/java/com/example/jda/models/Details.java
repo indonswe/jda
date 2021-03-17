@@ -23,7 +23,7 @@ public class Details {
     //private AppUser appUser;
 
 
-    public Details(int detailsId, String email, String name, LocalDate birthDate, AppUser appUser) {
+    public Details(int detailsId, String email, String name, LocalDate birthDate) {
         this.detailsId = detailsId;
         this.email = email;
         this.name = name;
