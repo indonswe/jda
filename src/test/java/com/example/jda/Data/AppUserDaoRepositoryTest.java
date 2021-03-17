@@ -54,7 +54,7 @@ class AppUserDaoRepositoryTest {
         AppUser result = testObject.create(appUser);
 
         assertNotNull(result);
-        assertNotNull(result.getAppUserID());
+        assertNotNull(result.getAppUserId());
     }
 
 
@@ -76,4 +76,3 @@ class AppUserDaoRepositoryTest {
     }
 }
 
-*/
