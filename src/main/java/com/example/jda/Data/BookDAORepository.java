@@ -28,8 +28,10 @@ public class BookDAORepository implements BookDAO{
     }
 
     @Override
+    @Transactional
     public Book create(Book book) {
-        return null;
+        em.persist(book);
+        return book;
     }
 
     @Override

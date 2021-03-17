@@ -8,7 +8,7 @@ public class Details {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int detailsId;
+        private Integer detailsId;
         @Column(unique = true)
         private String email;
         private String name;
@@ -23,7 +23,7 @@ public class Details {
     //private AppUser appUser;
 
 
-    public Details(int detailsId, String email, String name, LocalDate birthDate) {
+    public Details(Integer detailsId, String email, String name, LocalDate birthDate) {
         this.detailsId = detailsId;
         this.email = email;
         this.name = name;
@@ -38,9 +38,9 @@ public class Details {
         return detailsId;
     }
 
-    public void setDetailsId(int detailsId) {
-        this.detailsId = detailsId;
-    }
+    //public void setDetailsId(int detailsId) {
+        //this.detailsId = detailsId;
+    //}
 
     public String getEmail() {
         return email;

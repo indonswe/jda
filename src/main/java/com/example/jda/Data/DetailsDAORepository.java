@@ -32,7 +32,7 @@ public class DetailsDAORepository implements DetailsDAO {
                 .getResultList();
     }
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public Details create(Details details){
         em.persist(details);
         return details;

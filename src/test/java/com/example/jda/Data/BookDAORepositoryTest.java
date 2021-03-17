@@ -1,8 +1,9 @@
-/*
+
 
 package com.example.jda.Data;
 
 import com.example.jda.models.AppUser;
+import com.example.jda.models.Book;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,10 +26,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookDAORepositoryTest {
 
     @Autowired
-    //private AppUserDAO testObject;
+    private Book testObject;
     @Autowired private TestEntityManager em;
 
-    private AppUser persistedAppUser;
+    private Book persistedBook;
 
     @BeforeEach
     void setUp() {
@@ -49,6 +50,11 @@ class BookDAORepositoryTest {
 
     @Test
     void create() {
+    Book book = new Book(null,"Karl", "Marxx", 333);
+
+        Book result = testObject.create(book);
+	assertNotNull(result);
+        assertNotNull(result.getBookId());
     }
 
     @Test
@@ -60,4 +66,3 @@ class BookDAORepositoryTest {
     }
 }
 
-*/

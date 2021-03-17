@@ -2,6 +2,7 @@ package com.example.jda.Data;
 
 import com.example.jda.models.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.xml.crypto.Data;
 import java.util.Collection;
 
+@Repository
 public class AppUserDaoRepository implements com.example.jda.Data.AppUserDAO {
 
    private final EntityManager em;
@@ -27,7 +29,7 @@ public class AppUserDaoRepository implements com.example.jda.Data.AppUserDAO {
 
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public AppUser create(AppUser appUser) {
         em.persist(appUser);
         return appUser;

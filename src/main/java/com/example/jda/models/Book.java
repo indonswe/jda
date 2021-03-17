@@ -6,7 +6,7 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int bookId;
+    Integer bookId;
     String isbn;
     String title;
     int maxLoanDays;
@@ -21,7 +21,7 @@ public class Book {
     )
     Set<Author> authors;
 
-    public Book(int bookId, String isbn, String title, int maxLoanDays, Set<Author> authors) {
+    public Book(Integer bookId, String isbn, String title, int maxLoanDays, Set<Author> authors) {
         this.bookId = bookId;
         this.isbn = isbn;
         this.title = title;

@@ -9,7 +9,7 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(unique = true)
-    @Column(updatable = false)
+    //@Column(updatable = false)
     private Integer appUserId;
     @Column(unique = true)
     private String username;
