@@ -32,19 +32,19 @@ class AppUserDaoRepositoryTest {
 
     private AppUser persistedAppUser;
 
-    @BeforeEach
+    /*@BeforeEach
     void setUp() {
         Details unpersisteddet = new Details(null, "hej", "Kalle", LocalDate.parse("1976-09-11"));
-
+        unpersisteddet = em.persistAndFlush(unpersisteddet);
 
         AppUser unpersisted = new AppUser(null, "Erik", "Svensson", LocalDate.parse("1976-09-11"),unpersisteddet);
         persistedAppUser = em.persistAndFlush(unpersisted);
     }
 
     @AfterEach
-    void tearDown() {
-        em.flush();
-    }
+    //void tearDown() {
+        //em.flush();
+    }*/
 
     @Test
     @DisplayName("Given new student create should return entity with id")
@@ -55,8 +55,8 @@ class AppUserDaoRepositoryTest {
         );
         AppUser result = testObject.create(appUser);
 
-        //assertNotNull(result);
-        //assertNotNull(result.getAppUserId());
+        assertNotNull(result);
+        assertNotNull(result.getAppUserId());
 
         }
 

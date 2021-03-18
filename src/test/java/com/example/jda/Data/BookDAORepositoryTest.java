@@ -4,7 +4,7 @@ package com.example.jda.Data;
 
 
 import com.example.jda.models.AppUser;
-import com.example.jda.models.Book;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,10 +14,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEnti
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
-
 import static org.junit.jupiter.api.Assertions.*;
+import com.example.jda.models.Book;
 
 @SpringBootTest
 @AutoConfigureTestDatabase
@@ -25,6 +26,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @Transactional
 @DirtiesContext
 //@WebAppConfiguration
+
+
 
 class BookDAORepositoryTest {
 
@@ -55,7 +58,7 @@ class BookDAORepositoryTest {
 
     @Test
     void create() {
-    Book book = new Book(null,"Karl", "Marxx", 333);
+    Book book = new Book(null,"Karl", "Marxx", 5);
 
         Book result = testObject.create(book);
 	assertNotNull(result);

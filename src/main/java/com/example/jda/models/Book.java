@@ -3,6 +3,8 @@ package com.example.jda.models;
 import javax.persistence.*;
 import java.util.Set;
 
+import java.util.Objects;
+
 @Entity
 public class Book {
     @Id
@@ -10,7 +12,7 @@ public class Book {
     Integer bookId;
     String isbn;
     String title;
-    int maxLoanDays;
+    int maxDays;
     @ManyToMany(
             cascade = {CascadeType.REFRESH, CascadeType.DETACH},
             fetch = FetchType.LAZY
@@ -22,11 +24,11 @@ public class Book {
     )
     Set<Author> authors;
 
-    public Book(Integer bookId, String isbn, String title, int maxLoanDays, Set<Author> authors) {
+    public Book(Integer bookId, String isbn, String title, int maxDays, Set<Author> authors) {
         this.bookId = bookId;
         this.isbn = isbn;
         this.title = title;
-        this.maxLoanDays = maxLoanDays;
+        this.maxDays = maxDays;
         this.authors = authors;
     }
 
@@ -34,7 +36,7 @@ public class Book {
         this.bookId = bookId;
         this.isbn = isbn;
         this.title = title;
-        this.maxLoanDays = maxDays;
+        this.maxDays = maxDays;
         //this.authors = authors;
     }
 
@@ -67,11 +69,11 @@ public class Book {
     }
 
     public int getMaxLoanDays() {
-        return maxLoanDays;
+        return maxDays;
     }
 
     public void setMaxLoanDays(int maxLoanDays) {
-        this.maxLoanDays = maxLoanDays;
+        this.maxDays = maxDays;
     }
 
     public Set<Author> getAuthors() {

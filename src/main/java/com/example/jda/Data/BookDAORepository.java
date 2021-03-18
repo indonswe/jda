@@ -20,7 +20,7 @@ public class BookDAORepository implements BookDAO{
 
     @Override
     @Transactional(readOnly = true)
-    public Book findById(Integer integer) {
+    public Book findById(int integer) {
         return null;
     }
 
